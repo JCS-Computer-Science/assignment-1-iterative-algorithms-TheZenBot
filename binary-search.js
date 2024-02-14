@@ -7,8 +7,17 @@ function binarySearch(array, searchTerm) {
 	 ** repeat the above process for the subset of the array
 	 ** keep repeating with smaller and smaller subsets until you find the searchTerm
 	 */
+	let searchResult = null;
 
-	return null;
+	let midPoint = array;
+
+
+
+	if (midPoint == searchTerm){
+		searchResult = midPoint
+	};
+
+	return searchResult;
 }
 
 module.exports = binarySearch;
