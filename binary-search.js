@@ -7,7 +7,7 @@ function binarySearch(array, searchTerm) {
 	 ** repeat the above process for the subset of the array
 	 ** keep repeating with smaller and smaller subsets until you find the searchTerm
 	 */
-	let searchResult = null;
+	//let searchResult = -1;
 
 	let searchLow = 0;
 
@@ -16,20 +16,31 @@ function binarySearch(array, searchTerm) {
 
 	while (searchLow <= searchHigh) {
 		let midPoint = Math.floor((searchLow + searchHigh) / 2);
-
+/*
+		if (array[midPoint] === searchTerm) {
+            // found the key
+            return midPoint;
+        } else if (array[midPoint] < searchTerm) {
+            // continue searching to the right
+            searchLow = midPoint + 1;
+        } else {
+            // search searching to the left
+            searchHigh = midPoint - 1;
+        }
+*/
 		if (array[midPoint] === searchTerm){
-			searchResult = midPoint;
+			return midPoint;
 			}else if (array[midPoint] < searchTerm){
-				searchHigh=midPoint+1;
-				//searchHigh = array.length - (array[midPoint]+1);
+				searchLow=midPoint+1;
+				//searchLow = midPoint = array.length; not sure why this wont work
 			}else {
-				searchLow=midPoint-1;
-				//searchLow = (array[midPoint]+1) - array.length;
+				searchHigh=midPoint-1;
+				//searchHigh = array.length - midPoint; 
 			};
 	};
 
 	
-	return searchResult;
+	return -1;
 }
 
 module.exports = binarySearch;
