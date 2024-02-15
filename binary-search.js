@@ -9,14 +9,26 @@ function binarySearch(array, searchTerm) {
 	 */
 	let searchResult = null;
 
-	let midPoint = array;
+	let searchLow = 0;
+
+	let searchHigh = array.length - 1;
 
 
+	while (searchLow <= searchHigh) {
+		let midPoint = Math.floor((searchLow + searchHigh) / 2);
 
-	if (midPoint == searchTerm){
-		searchResult = midPoint
+		if (array[midPoint] === searchTerm){
+			searchResult = midPoint;
+			}else if (array[midPoint] < searchTerm){
+				searchHigh=midPoint+1;
+				//searchHigh = array.length - (array[midPoint]+1);
+			}else {
+				searchLow=midPoint-1;
+				//searchLow = (array[midPoint]+1) - array.length;
+			};
 	};
 
+	
 	return searchResult;
 }
 
