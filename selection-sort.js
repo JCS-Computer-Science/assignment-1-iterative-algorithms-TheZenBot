@@ -7,7 +7,21 @@ function selectionSort(array) {
 	 ** Continue like this until you have only one element left.
 	 */
 
-	return array;
+	let sorted = []
+	console.log(array);
+	while(array.length>0){
+		small = 0
+		for (let i = 0; i < array.length; i++) {
+			if (array[i]<array[small]) {
+				small = i					
+			};
+		};
+		sorted.push(array[small])
+
+		array.splice(small,1)
+	};
+	console.log(sorted);
+	return sorted;
 }
 
 module.exports = selectionSort;
