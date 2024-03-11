@@ -5,19 +5,26 @@ function insertionSort(array) {
 	 ** is bigger
 	 */
 	let length = array.length
-	for (let i = 0; i < length; i++) {
-		let index = array[i];
+	for (let i = 1; i < length; i++) {
+		
+		let index  = array[i]
 
-		let last = index-1;
+		let last = i-1;
 
 		while ((last > -1) && (index < array[last])) {
+			console.log(last);
+
 			array[last+1] = array[last];
+			array[last]=index
 			last--;
+			
 		}
-		array[last] = index;
+		
 	}
 
 	return array;
 }
+
+//console.log(insertionSort([6,2,1,5, 4]))
 
 module.exports = insertionSort;
